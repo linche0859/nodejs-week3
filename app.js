@@ -3,6 +3,21 @@ const cors = require('cors');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+const dbUrl = process.env.DATABASE_URL.replace(
+  '<password>',
+  process.env.DATABASE_PASSWORD
+);
+mongoose
+  .connect(dbUrl)
+  .then(() => {
+    console.log('資料庫連線成功');
+  })
+  .catch((e) => {
+    console.log(e.reason);
+  });
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
