@@ -1,0 +1,92 @@
+{
+  "info": {
+    "_postman_id": "dcebc48b-d142-4ed7-ad10-e3ae3fcd9382",
+    "name": "Node.js 直播班第三週任務",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "取得全部貼文",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{API_URL}}/posts",
+          "host": ["{{API_URL}}"],
+          "path": ["posts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "新增貼文",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userName\": \"航海王\",\r\n    \"userPhoto\": \"https://picsum.photos/200/300\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{API_URL}}/posts",
+          "host": ["{{API_URL}}"],
+          "path": ["posts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "編輯特定的貼文",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userName\": \"陽光宅男\",\r\n    \"liked\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{API_URL}}/posts/6263b9fb5bba0a1bf09db7a2",
+          "host": ["{{API_URL}}"],
+          "path": ["posts", "6263b9fb5bba0a1bf09db7a2"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "刪除全部貼文",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{API_URL}}/posts",
+          "host": ["{{API_URL}}"],
+          "path": ["posts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "刪除指定的貼文",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{API_URL}}/posts/625cfb2f46aff2b361a921b4",
+          "host": ["{{API_URL}}"],
+          "path": ["posts", "625cfb2f46aff2b361a921b4"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
