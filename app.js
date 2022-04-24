@@ -1,9 +1,10 @@
 const express = require('express');
 const cors = require('cors');
-// const path = require('path');
+const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const { notFound, internalServerError } = require('./middleware/error');
 require('dotenv').config();
 
 const dbUrl = process.env.DATABASE_URL.replace(
@@ -21,13 +22,11 @@ mongoose
 
 const indexRouter = require('./routes/index');
 const postRouter = require('./routes/post');
-const universalRouter = require('./routes/universal');
 
 const app = express();
 
 app.use(
   cors({
-    methods: 'GET,HEAD,OPTIONS,POST,PATCH,PUT,DELETE',
     allowedHeaders:
       'Content-Type,Authorization,Content-Length,X-Requested-With',
   })
@@ -36,10 +35,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/posts', postRouter);
-app.use('*', universalRouter);
+
+app.use(notFound);
+app.use(internalServerError);
 
 module.exports = app;
