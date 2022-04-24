@@ -1,9 +1,9 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const mongoose = require('mongoose');
 const { notFound, internalServerError } = require('./middleware/error');
 require('dotenv').config();
 
