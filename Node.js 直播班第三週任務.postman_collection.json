@@ -25,7 +25,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"userName\": \"航海王\",\r\n    \"userPhoto\": \"https://picsum.photos/200/300\"\r\n}",
+          "raw": "{\r\n    \"userName\": \"航海王\",\r\n    \"userPhoto\": \"https://picsum.photos/200/300\",\r\n    \"content\": \"我要成為海賊王\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -55,9 +55,9 @@
           }
         },
         "url": {
-          "raw": "{{API_URL}}/posts/6263b9fb5bba0a1bf09db7a2",
+          "raw": "{{API_URL}}/posts/6266bb84d6163acfc6b51c01",
           "host": ["{{API_URL}}"],
-          "path": ["posts", "6263b9fb5bba0a1bf09db7a2"]
+          "path": ["posts", "6266bb84d6163acfc6b51c01"]
         }
       },
       "response": []
