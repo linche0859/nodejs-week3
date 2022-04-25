@@ -14,8 +14,8 @@ const getPosts = async () => await Post.find().sort({ createdAt: -1 });
  */
 const postOnePost = async (payload) => {
   try {
-    const { userName, userPhoto } = payload;
-    const post = await Post.create({ userName, userPhoto });
+    const { userName, userPhoto, content } = payload;
+    const post = await Post.create({ userName, userPhoto, content });
     return post;
   } catch (error) {
     return Promise.reject(error);
